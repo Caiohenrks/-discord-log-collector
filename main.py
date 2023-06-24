@@ -1,13 +1,16 @@
-import asyncio
 import discord
 from discord.ext import tasks
+from dotenv import load_dotenv
 import os
+import subprocess
+
+load_dotenv()
 
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 
 log_file_path = r"/root/mine-server-fabric/logs/latest.log"
-channel_id = 1120809425582706829  # ID do canal do Discord onde as mensagens serão enviadas
+channel_id = 000000000006829  # ID do canal do Discord onde as mensagens serão enviadas
 
 @tasks.loop(seconds=1)  # Define a frequência com que o log será verificado (1 segundo neste exemplo)
 async def check_log():
